@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+<!--generats buttons and append into shows -->
+    <div id="btn-box" class="btn-box"></div>
+
+<!--form that takes user input and generats a button -->
+    <div class="form-box">
+        <form>
+            Add a show
+            <input id="new-search-term" type="text" placeholder="add sport here">
+            <input id="submitBtn" type="submit" value="submit">
+        </form>
+    </div>
+
+<!--when button is clicked this is the area that gifs are appended to  -->
+    <div id="shows" class="shows"></div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
     
+    <script src="assets/Javascript/Gif-Tastic.js"></script>
 </body>
 </html>
