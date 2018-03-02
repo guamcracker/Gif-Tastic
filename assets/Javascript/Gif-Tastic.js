@@ -30,13 +30,16 @@
 
 
 $(document).ready(function () {
-    var listOfshows = ["Simpsons", "Arrested-Development", "The-Office"]
-    console.log(listOfshows)
-
+    var shows = {
+    showList: ["Simpsons", "Arrested-Development", "The-Office"]
+    }
+   
+var listOfShows = shows.showList
+     console.log(listOfShows)
     var btnBox = $("#btn-box")
-    for (var i = 0; i < listOfshows.length; i++) {
-        var showName = listOfshows[i];
-        var searchBtn = $('<button class="gifsearch">' + listOfshows[i] + '</button>')
+    for (var i = 0; i < listOfShows.length; i++) {
+        // var showName = listOfShows[i];
+        var searchBtn = $('<button class="gifsearch">' + listOfShows[i] + '</button>')
                 btnBox.append(searchBtn)
 
     }
@@ -64,7 +67,7 @@ $(document).ready(function () {
         var qTerm = $(this).text()
 
    
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + qTerm + '&api_key=cq95qBbevvwLGVueEXDkGy2P7Sy5FwVU&limit=10'; 
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + qTerm + '&api_key=cq95qBbevvwLGVueEXDkGy2P7Sy5FwVU&limit=10'; 
         
         $.ajax({
             url: queryURL,
