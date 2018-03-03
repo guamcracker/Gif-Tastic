@@ -64,10 +64,10 @@ var listOfShows = shows.showList
 
     $(document).on('click', '.gifsearch', function (event) {
         event.preventDefault()
-        var qTerm = $(this).text()
+        var seachQuery = $(this).text()
 
    
-        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + qTerm + '&api_key=cq95qBbevvwLGVueEXDkGy2P7Sy5FwVU&limit=10'; 
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + seachQuery + '&api_key=cq95qBbevvwLGVueEXDkGy2P7Sy5FwVU&limit=10'; 
         
         $.ajax({
             url: queryURL,
@@ -81,32 +81,28 @@ var listOfShows = shows.showList
             
             var gifs = response.data
 
-
+            X$("#shows").empty()
             for (var i = 0; i < gifs.length; i++){
-            
+                var gifsStill = gifs[i].images["480w_still"].url
 
-            var gifsStill = gifs[i].images["480w_still"].url
+                var gifLoop = gifs[i].images["original"].url
 
-            var gifLoop = gif[i].images["original"].url
+                var rating = gifs[i].rating
 
-            var rating = gifs[i].rating
+                var imageURL = gifsStill;
 
-            var imageURL = gifsStill;
+                var showsImage = $('<img class="shows-image"/>');
 
-            var showsImage = $('<img class="shows-image"/>');
+                showsImage.attr("src", imageURL);
 
-            showsImage.attr("src", imageURL);
+                var pOne = $("<p>").text("Rating:" + rating);
 
-            var pOne = $("<p>").text("Rating:" + rating);
-
-            $("#shows").append(showsImage).append(pOne);
-
-
-        }
-        $(document).on('click', '.shows-image', function(event){
-        var source = $(this).attr("src")
-        console.log(source)
-        })
+                $("#shows").append(showsImage).append(pOne);
+            }
+            $(document).on('click', '.shows-image', function(event){
+            var source = $(this).attr("src")
+            console.log(source)
+            })
 
     })
 
